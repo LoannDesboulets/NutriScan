@@ -1,0 +1,99 @@
+/* components.css */
+
+/* Toggle Button Styling */
+#darkModeToggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--button-bg-color); /* Light mode button color */
+    border: 2px solid var(--border-color); /* Light mode border color */
+    font-size: 1.5rem;
+    color: var(--button-text-color); /* Light mode text color */
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Button Hover Effects */
+#darkModeToggle {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: var(--dark-button-bg-color);
+    color: var(--dark-button-text-color);
+    border: 2px solid var(--dark-border-color);
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: var(--dark-highlight-color);
+    border-color: var(--dark-highlight-color);
+}
+
+/* Custom Checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary-bg-color);
+    border-radius: 4px;
+    background-color: var(--light-bg-color); /* Replaced with light background */
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-bg-color);
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2714';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    font-size: 16px;
+    color: var(--light-bg-color); /* Using light background color for check mark */
+}
+
+input[type="checkbox"]:hover {
+    border-color: var(--primary-bg-color);
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+    border-color: var(--primary-bg-color);
+}
+
+/* Food Item Style */
+.food-item {
+    background-color: var(--light-bg-color); /* Replaced with light background */
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--box-shadow-color);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.food-item:hover {
+    background-color: var(--light-bg-color); /* Using light background color on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.food-item label {
+    font-size: 16px;
+    color: var(--text-color); /* Replaced with text color variable */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.food-item label:hover {
+    color: var(--primary-bg-color);
+}

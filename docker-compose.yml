@@ -1,0 +1,31 @@
+services:
+  frontend:
+    image: nutriscan-frontend:v1
+    container_name: nutriscan-frontend
+    ports:
+      - "80:80"  # Expose port 80 to the host machine
+    volumes:
+      - ./frontend/app:/usr/share/nginx/html  # Mount local frontend folder to NGINX's HTML directory
+    networks:
+      minio_app-network:
+        aliases:
+          - nutriscanfrontend
+
+  backend:
+    image: nutriscan-backend:v1
+    container_name: nutriscan-backend
+    ports:
+      - "5000:5000"  # Expose port 5000 to the host machine
+    env_file:
+      - ./backend/app/.env
+    volumes:
+      - ./backend/app:/app
+      - ./ssl:/usr/local/share/ca-certificates
+    networks:
+      minio_app-network:
+        aliases:
+          - nutriscanbackend
+
+networks:
+  minio_app-network:
+    external: true

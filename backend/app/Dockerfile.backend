@@ -1,0 +1,53 @@
+
+# Stage 1: Build Stage
+FROM python:3.12-alpine AS builder
+
+# Set environment variables to avoid Python writing bytecode files
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Set working directory in the container
+WORKDIR /app
+
+# Install dependencies required for building packages (like gcc, musl-dev, libffi-dev)
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev libffi-dev libmagic
+
+# Install Poetry
+RUN pip install --upgrade pip && \
+    pip install poetry
+
+# Copy only the Poetry files to install dependencies
+COPY pyproject.toml poetry.lock /app/
+
+# Install dependencies (without dev dependencies)
+RUN poetry install --no-dev --no-interaction
+
+# Stage 2: Production Stage
+FROM python:3.12-alpine AS production
+
+# Set environment variables for the production image
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies required for running the application in the production image
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev libffi-dev libmagic openssl && \
+    pip install --upgrade pip && \
+    pip install poetry
+
+# Copy the installed dependencies and application files from the build stage
+COPY --from=builder /app /app
+
+# Copy the application files from the local machine to the container (routes, models, etc.)
+COPY . /app
+
+# Expose the port the app will be running on
+EXPOSE 5000
+
+# Install all dependencies in the production stage (this is the key change!)
+RUN poetry install --no-dev --no-interaction
+
+# Run the FastAPI application with Uvicorn via Poetry
+CMD ["poetry", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "5000"]

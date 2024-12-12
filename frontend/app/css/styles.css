@@ -1,0 +1,354 @@
+:root {
+  /* Light Mode Colors */
+  --primary-bg-color: #7bb88d; /* Lighter greenish blue */
+  --secondary-bg-color: #e7e7e7; /* Soft grey background */
+  --highlight-color: #6da87f; /* Highlight color for buttons */
+  --text-color: #333; /* Dark text */
+  --button-bg-color: #7bb88d; /* Button color */
+  --button-text-color: #333; /* Button text color */
+  --border-color: #333; /* Border color */
+  --box-shadow-color: rgba(0, 0, 0, 0.1); /* Box shadow color */
+
+  /* Dark Mode Colors */
+  --dark-primary-bg-color: #2c3e50; /* Darker blue-green */
+  --dark-secondary-bg-color: #34495e; /* Dark grey background */
+  --dark-highlight-color: #16a085; /* Darker highlight color */
+  --dark-text-color: #ecf0f1; /* Light text for dark mode */
+  --dark-button-bg-color: #2c3e50; /* Dark mode button color */
+  --dark-button-text-color: #333; /* Light button text */
+  --dark-border-color: #555; /* Dark border color */
+  --dark-box-shadow-color: rgba(0, 0, 0, 0.3); /* Dark box shadow color */
+}
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle Button Styling */
+#darkModeToggle {
+  position: absolute;
+  top: 20px; /* Adjust as necessary */
+  right: 20px; /* Position at the top right corner */
+  background-color: var(--button-bg-color); /* Light mode button color */
+  border: 2px solid var(--border-color); /* Light mode border color */
+  font-size: 1.5rem;
+  color: var(--button-text-color); /* Light mode text color */
+  cursor: pointer;
+  z-index: 10; /* Ensure the button stays on top of other elements */
+  padding: 10px 15px; /* Add padding to the button for better size */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for color changes */
+}
+
+/* Dark Mode Button */
+body.dark-mode #darkModeToggle {
+  background-color: var(--dark-button-bg-color); /* Dark mode button color */
+  color: var(--dark-button-text-color); /* Dark mode text color */
+  border: 2px solid var(--dark-border-color); /* Dark mode border color */
+}
+
+/* Button Hover Effects */
+#darkModeToggle {
+  background-color: var(--highlight-color); /* Highlight color for light mode */
+  border-color: var(--highlight-color); /* Highlight border color for light mode */
+}
+
+body.dark-mode #darkModeToggle {
+  background-color: var(--dark-highlight-color); /* Highlight color for dark mode */
+  border-color: var(--dark-highlight-color); /* Highlight border color for dark mode */
+}
+
+/* Dark Mode Body */
+body.dark-mode {
+  background-color: var(--dark-secondary-bg-color);
+  color: var(--dark-text-color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-bg-color);
+  padding: 0 40px; /* Adjust padding for the new header height */
+  position: relative;
+  color: white;
+  width: 100%;
+  height: 120px; /* Set header height to 120px */
+  transition: background-color 0.3s;
+}
+
+/* Banner Image */
+header .logo-container img {
+  height: 140px; /* Set the image height to 140px */
+  width: auto;
+  position: absolute;
+  left: 20px; /* Place the image 20px from the left */
+  top: 0; /* Place the image at the top of the header */
+}
+
+header h1 {
+  margin-left: 20px;
+  font-size: 3rem;
+  text-align: center;
+  flex-grow: 1;
+  font-family: 'Arial', sans-serif;
+  color: slategray;
+  font-weight: bolder;
+}
+
+/* Dark Mode Header */
+body.dark-mode header {
+  background-color: var(--dark-primary-bg-color);
+}
+
+/* Main Content - Centered Flex Layout */
+.container-fluid {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+/* Flex Layout for Two Side-by-Side Columns */
+.container-fluid > .col {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+  height: 500px; /* Fixed height for columns */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s;
+}
+
+/* Dark Mode for Columns */
+body.dark-mode .container-fluid > .col {
+  background-color: var(--dark-secondary-bg-color);
+  box-shadow: 0 4px 8px var(--dark-box-shadow-color);
+}
+
+/* Food List */
+#foodList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#foodList li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s;
+}
+
+#foodList input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Dark Mode for Food List Items */
+body.dark-mode #foodList li {
+  background-color: var(--dark-secondary-bg-color);
+  border-bottom: 1px solid var(--dark-border-color);
+}
+
+/* Nutritional Information */
+#nutritionalInfo {
+  padding: 20px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--primary-bg-color);
+}
+
+p {
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+/* Dark Mode for Nutritional Info */
+body.dark-mode #nutritionalInfo {
+  background-color: var(--dark-secondary-bg-color);
+}
+
+/* Search Bar */
+#searchBar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#searchBar:focus {
+  border-color: var(--highlight-color);
+  outline: none;
+}
+
+/* Dark Mode for Search Bar */
+body.dark-mode #searchBar {
+  border-color: var(--dark-border-color);
+}
+
+/* Card Style */
+.card-style {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  height: 700px;
+}
+
+.card-style:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Card Style */
+body.dark-mode .card-style {
+  background-color: var(--dark-secondary-bg-color);
+  box-shadow: 0 4px 8px var(--dark-box-shadow-color);
+}
+
+/* Scrollbar */
+.scrollable {
+  overflow-y: scroll;
+  height: 550px;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #4caf50;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #45a049;
+}
+
+/* Dark Mode Scrollbar */
+body.dark-mode .scrollable::-webkit-scrollbar-track {
+  background: #333;
+}
+
+body.dark-mode .scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--dark-highlight-color);
+}
+
+/* List Items */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Custom Checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--primary-bg-color);
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Dark Mode for Checkbox */
+body.dark-mode input[type="checkbox"] {
+  border-color: var(--dark-primary-bg-color);
+  background-color: #333;
+}
+
+/* Checked State for Custom Checkbox */
+input[type="checkbox"]:checked {
+  background-color: var(--primary-bg-color);
+}
+
+input[type="checkbox"]:checked::before {
+  content: '\2714';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+/* Dark Mode for Checked Checkbox */
+body.dark-mode input[type="checkbox"]:checked {
+  background-color: var(--dark-primary-bg-color);
+}
+
+/* Hover Effect */
+input[type="checkbox"]:hover {
+  border-color: var(--primary-bg-color);
+}
+
+/* Focus Effect */
+input[type="checkbox"]:focus {
+  outline: none;
+  border-color: var(--primary-bg-color);
+}
+
+/* Food Item Style */
+.food-item {
+  background-color: #fff;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--box-shadow-color);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.food-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Dark Mode for Food Item */
+body.dark-mode .food-item {
+  background-color: #444;
+  color: var(--dark-text-color);
+}
+
+.food-item label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.food-item label:hover {
+  color: var(--primary-bg-color);
+}
+
+/* Add space between checkbox and label */
+.food-item input[type="checkbox"] {
+  margin-right: 15px;
+}

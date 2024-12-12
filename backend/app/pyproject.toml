@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["Loann Desboulets PhD"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+uvicorn = "^0.22.0"
+sqlalchemy = "^2.0.0"
+pydantic = "^2.0.0"
+python-dotenv = "^1.0.1"
+minio = "^7.2.12"
+starlette = "^0.41.3"
+fastapi = "^0.115.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.0"
+pytest-asyncio = "^0.21.0"
+httpx = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

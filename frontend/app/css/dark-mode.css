@@ -1,0 +1,57 @@
+/* dark-mode.css */
+
+/* Dark Mode Body */
+body.dark-mode {
+    background-color: var(--dark-secondary-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode header {
+    background-color: var(--dark-primary-bg-color);
+}
+
+body.dark-mode .container-fluid > .col {
+    background-color: var(--dark-secondary-bg-color);
+    box-shadow: 0 4px 8px var(--dark-box-shadow-color);
+}
+
+body.dark-mode #foodList li {
+    background-color: var(--dark-bg-color);
+    border-bottom: 1px solid var(--dark-border-color);
+}
+
+
+body.dark-mode #searchBar {
+    border-color: var(--dark-border-color);
+}
+
+body.dark-mode .card-style {
+    background-color: var(--dark-bg-color);
+    box-shadow: 0 4px 8px var(--dark-box-shadow-color);
+}
+
+body.dark-mode .scrollable::-webkit-scrollbar-track {
+    background: var(--dark-border-color); /* Changed to dark border color */
+}
+
+body.dark-mode .scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--dark-highlight-color);
+}
+
+body.dark-mode input[type="checkbox"] {
+    border-color: var(--dark-primary-bg-color);
+    background-color: var(--dark-border-color); /* Replaced with dark border color */
+}
+
+body.dark-mode input[type="checkbox"]:checked {
+    background-color: var(--dark-primary-bg-color);
+}
+
+body.dark-mode .food-item {
+    background-color: var(--dark-secondary-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .food-item:hover {
+    background-color: var(--dark-bg-color); /* Replaced with dark background color */
+}

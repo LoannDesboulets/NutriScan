@@ -1,0 +1,147 @@
+/* Header Centering */
+header {
+    display: flex!important;
+    align-items: center;  /* Vertically center the logo and title */
+    justify-content: center;  /* Horizontally center the title */
+    background-color: var(--primary-bg-color);
+    padding: 0 40px;
+    position: relative;
+    color: var(--text-color);
+    width: 100%;
+    height: 120px;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+/* Banner Image */
+header .logo-container {
+    position: absolute;
+    left: 20px;  /* Position the logo on the left */
+    top: 50%;  /* Vertically center the logo */
+    transform: translateY(-50%);  /* Adjust the logo position to truly center it */
+    z-index: 10;
+}
+
+header .logo-container img {
+    height: 140px;
+    width: auto;
+}
+
+/* Title (h1) */
+header h1 {
+    margin-left: 160px;  /* Adjust the space between the logo and the title */
+    font-size: 3rem;
+    text-align: center;
+    flex-grow: 1;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    font-weight: bolder;
+}
+
+.container-fluid {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.container-fluid > .col {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+    height: 500px; /* Fixed height for columns */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s;
+}
+
+#foodList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#foodList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+
+#foodList input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#nutritionalInfo {
+    padding: 20px;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: var(--primary-bg-color);
+}
+
+p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#searchBar:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+}
+
+.card-style {
+    background-color: var(--light-bg-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 12px var(--box-shadow-color);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    height: 700px;
+}
+
+.card-style:hover {
+    box-shadow: 0 12px 20px var(--box-shadow-color);
+}
+
+.scrollable {
+    overflow-y: scroll;
+    height: 550px;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: var(--light-bg-color);
+    border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--highlight-color);
+    border-radius: 10px;
+    border: 2px solid var(--light-bg-color);
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: var(--highlight-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

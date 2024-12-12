@@ -1,0 +1,26 @@
+/* colors.css */
+
+/* Light Mode Colors */
+:root {
+    --primary-bg-color: #7bb88d; /* Lighter greenish blue */
+    --secondary-bg-color: #e7e7e7; /* Soft grey background */
+    --highlight-color: #6da87f; /* Highlight color for buttons */
+    --text-color: #333; /* Dark text */
+    --button-bg-color: #7bb88d; /* Button color */
+    --button-text-color: #333; /* Button text color */
+    --border-color: #333; /* Border color */
+    --box-shadow-color: rgba(0, 0, 0, 0.5); /* Box shadow color */
+    --light-bg-color: #f1f1f16b; /* Light background color */
+  
+    /* Dark Mode Colors */
+    --dark-primary-bg-color: #2c3e50; /* Darker blue-green */
+    --dark-secondary-bg-color: #34495e; /* Dark grey background */
+    --dark-highlight-color: #16a085; /* Darker highlight color */
+    --dark-text-color: #333; /* Light text for dark mode */
+    --dark-button-bg-color: #2c3e50; /* Dark mode button color */
+    --dark-button-text-color: #333; /* Light button text */
+    --dark-border-color: #555; /* Dark border color */
+    --dark-box-shadow-color: rgba(0, 0, 0, 0.5); /* Dark box shadow color */
+    --dark-bg-color: #f1f1f1; /* Light background color */
+  }
+  
